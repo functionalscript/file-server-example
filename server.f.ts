@@ -8,7 +8,6 @@ import {
     type NodeProgram,
     type IncomingMessage,
     readFile,
-    type ServerResponse,
     log,
     readdir,
     type IoResult,
