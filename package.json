@@ -15,7 +15,7 @@
   "type": "module",
   "main": "server.f.ts",
   "scripts": {
-    "test": "fjs t",
+    "test": "tsc && fjs t",
     "server": "fjs r ./server.f.ts"
   },
   "dependencies": {
