@@ -1,0 +1,27 @@
+{
+  "name": "file-server-example",
+  "version": "0.0.0",
+  "description": "File Server Example",
+  "homepage": "https://github.com/functionalscript/file-server-example#readme",
+  "bugs": {
+    "url": "https://github.com/functionalscript/file-server-example/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/functionalscript/file-server-example.git"
+  },
+  "license": "MIT",
+  "author": "Sergey Shandar",
+  "type": "module",
+  "main": "server.f.ts",
+  "scripts": {
+    "test": "fjs t",
+    "server": "fjs r ./server.f.ts"
+  },
+  "dependencies": {
+    "functionalscript": "^0.11.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
