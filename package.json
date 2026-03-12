@@ -19,7 +19,7 @@
     "start": "fjs r ./server.f.ts"
   },
   "dependencies": {
-    "functionalscript": "^0.11.6"
+    "functionalscript": "^0.11.7"
   },
   "devDependencies": {
     "typescript": "^5.9.3"
