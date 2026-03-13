@@ -1,5 +1,5 @@
 import { utf8 } from 'functionalscript/text/module.f.js'
-import { type Vec } from 'functionalscript/types/bit_vec/module.f.js'
+import { length, type Vec } from 'functionalscript/types/bit_vec/module.f.js'
 import { pure } from 'functionalscript/types/effects/module.f.js'
 import {
     createServer,
@@ -53,6 +53,10 @@ const listener = ({ url }: IncomingMessage) => {
                 body: o ? v : utf8('404 not found'),
             })
         })
+        .step(x =>
+            log(`served: ${length(x.body) >> 3n} bytes`)
+            .step(() => pure(x))
+        )
 }
 
 const main: NodeProgram = () => createServer(listener)
