@@ -1,6 +1,8 @@
 # file-server-example
 
-See [file-server-example.onrender.com](https://file-server-example.onrender.com/).
+The repository demonstrates a simple file server written on [FunctionalScript](https://github.com/functionalscript/functionalscript) using [Effects](https://jsr.io/@functionalscript/functionalscript/doc/types/effects/module.f.ts).
+
+Online demo: [file-server-example.onrender.com](https://file-server-example.onrender.com/).
 
 ## Run Locally
 
