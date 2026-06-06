@@ -13,7 +13,7 @@ import {
     type IoResult,
     type Dirent,
 } from 'functionalscript/fs/effects/node/module.f.js'
-import { htmlToString, htmlUtf8 } from 'functionalscript/fs/html/module.f.js'
+import { htmlUtf8 } from 'functionalscript/fs/html/module.f.js'
 import { concat } from 'functionalscript/fs/path/module.f.js'
 
 const listener = ({ url }: IncomingMessage) => {
