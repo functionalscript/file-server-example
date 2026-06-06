@@ -16,7 +16,8 @@
   "main": "server.f.ts",
   "scripts": {
     "test": "tsc && fjs t",
-    "start": "fjs r ./server.f.ts"
+    "start": "fjs r ./server.f.ts",
+    "ci-update": "fjs r ./node_modules/functionalscript/fs/ci/module.f.js"
   },
   "dependencies": {
     "functionalscript": "^0.24.0"
