@@ -1,5 +1,5 @@
 import { utf8 } from 'functionalscript/fs/text/module.f.js'
-import { length, type Vec } from 'functionalscript/fs/types/bit_vec/module.f.js'
+import { empty, length, type Vec } from 'functionalscript/fs/types/bit_vec/module.f.js'
 import { pure } from 'functionalscript/fs/effects/module.f.js'
 import {
     createServer,
@@ -13,7 +13,7 @@ import {
     type IoResult,
     type Dirent,
 } from 'functionalscript/fs/effects/node/module.f.js'
-import { htmlToString } from 'functionalscript/fs/html/module.f.js'
+import { htmlToString, htmlUtf8 } from 'functionalscript/fs/html/module.f.js'
 import { concat } from 'functionalscript/fs/path/module.f.js'
 
 const listener = ({ url }: IncomingMessage) => {
@@ -25,22 +25,14 @@ const listener = ({ url }: IncomingMessage) => {
         return [['a', { href }, name + (isFile ? '' : '/')], '\n'] as const
     }
 
-    const dirPage = (v: readonly Dirent[]) => htmlToString(
-        ['html',
-            ['head',
-                ['link', { rel: 'stylesheet', href: '/main.css' }]
-            ],
-            ['body',
-                ['pre',
-                    ...v.flatMap(dirLink)
-                ]
-            ]
-        ])
+    const dirPage = (v: readonly Dirent[]) => htmlUtf8
+        (['link', { rel: 'stylesheet', href: '/main.css' }])
+        (['pre', ...v.flatMap(dirLink)])
 
     const orReadDir = (r: IoResult<Vec>) => r[0] === 'ok'
         ? pure(r)
         : readdir(file, {})
-            .step(([s, v]) => pure([s, utf8(s === 'ok' ? dirPage(v) : '')] as const))
+            .step(([s, v]) => pure([s, s === 'ok' ? dirPage(v) : empty] as const))
 
     return log(`reading ${file}`)
         .step(() => readFile(file))
