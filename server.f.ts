@@ -1,6 +1,6 @@
-import { utf8 } from 'functionalscript/text/module.f.js'
-import { length, type Vec } from 'functionalscript/types/bit_vec/module.f.js'
-import { pure } from 'functionalscript/types/effects/module.f.js'
+import { utf8 } from 'functionalscript/fs/text/module.f.js'
+import { length, type Vec } from 'functionalscript/fs/types/bit_vec/module.f.js'
+import { pure } from 'functionalscript/fs/effects/module.f.js'
 import {
     createServer,
     listen,
@@ -12,9 +12,9 @@ import {
     readdir,
     type IoResult,
     type Dirent,
-} from 'functionalscript/types/effects/node/module.f.js'
-import { htmlToString } from 'functionalscript/html/module.f.js'
-import { concat } from 'functionalscript/path/module.f.js'
+} from 'functionalscript/fs/effects/node/module.f.js'
+import { htmlToString } from 'functionalscript/fs/html/module.f.js'
+import { concat } from 'functionalscript/fs/path/module.f.js'
 
 const listener = ({ url }: IncomingMessage) => {
     const path = url.split('?')[0] ?? ''
