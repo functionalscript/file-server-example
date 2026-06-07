@@ -21,7 +21,7 @@
     "cov": "node --test --experimental-test-coverage --test-coverage-include=**/*.f.ts"
   },
   "dependencies": {
-    "functionalscript": "^0.26.0"
+    "functionalscript": "^0.27.0"
   },
   "devDependencies": {
     "typescript": "^6.0.3"

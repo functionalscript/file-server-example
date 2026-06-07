@@ -15,7 +15,7 @@
           }
         },
         {
-          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260605.1"
+          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260606.1"
         },
         {
           "uses": "denoland/setup-deno@v2",
@@ -57,13 +57,7 @@
           "run": "npm install -g ./*.tgz"
         },
         {
-          "run": "fjs compile issues/demo/data/tree.json _tree.f.js"
-        },
-        {
-          "run": "fjs t"
-        },
-        {
-          "run": "npm uninstall functionalscript -g"
+          "run": "npm uninstall file-server-example -g"
         },
         {
           "run": "git reset --hard HEAD && git clean -fdx"
@@ -73,12 +67,6 @@
         },
         {
           "run": "deno task test"
-        },
-        {
-          "run": "deno task fjs compile issues/demo/data/tree.json _tree.f.js"
-        },
-        {
-          "run": "deno task fjs t"
         },
         {
           "run": "deno publish --dry-run --allow-slow-types"
@@ -91,9 +79,6 @@
         },
         {
           "run": "bun test --timeout 20000"
-        },
-        {
-          "run": "bun ./fs/fjs/module.ts t"
         },
         {
           "run": "git reset --hard HEAD && git clean -fdx"
@@ -110,7 +95,7 @@
           }
         },
         {
-          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260605.1"
+          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260606.1"
         },
         {
           "uses": "denoland/setup-deno@v2",
@@ -152,13 +137,7 @@
           "run": "npm install -g ./*.tgz"
         },
         {
-          "run": "fjs compile issues/demo/data/tree.json _tree.f.js"
-        },
-        {
-          "run": "fjs t"
-        },
-        {
-          "run": "npm uninstall functionalscript -g"
+          "run": "npm uninstall file-server-example -g"
         },
         {
           "run": "git reset --hard HEAD && git clean -fdx"
@@ -168,12 +147,6 @@
         },
         {
           "run": "deno task test"
-        },
-        {
-          "run": "deno task fjs compile issues/demo/data/tree.json _tree.f.js"
-        },
-        {
-          "run": "deno task fjs t"
         },
         {
           "run": "deno publish --dry-run --allow-slow-types"
@@ -186,9 +159,6 @@
         },
         {
           "run": "bun test --timeout 20000"
-        },
-        {
-          "run": "bun ./fs/fjs/module.ts t"
         },
         {
           "run": "git reset --hard HEAD && git clean -fdx"
@@ -205,7 +175,7 @@
           }
         },
         {
-          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260605.1"
+          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260606.1"
         },
         {
           "uses": "denoland/setup-deno@v2",
@@ -247,13 +217,7 @@
           "run": "npm install -g ./*.tgz"
         },
         {
-          "run": "fjs compile issues/demo/data/tree.json _tree.f.js"
-        },
-        {
-          "run": "fjs t"
-        },
-        {
-          "run": "npm uninstall functionalscript -g"
+          "run": "npm uninstall file-server-example -g"
         },
         {
           "run": "git reset --hard HEAD && git clean -fdx"
@@ -263,12 +227,6 @@
         },
         {
           "run": "deno task test"
-        },
-        {
-          "run": "deno task fjs compile issues/demo/data/tree.json _tree.f.js"
-        },
-        {
-          "run": "deno task fjs t"
         },
         {
           "run": "deno publish --dry-run --allow-slow-types"
@@ -281,9 +239,6 @@
         },
         {
           "run": "bun test --timeout 20000"
-        },
-        {
-          "run": "bun ./fs/fjs/module.ts t"
         },
         {
           "run": "git reset --hard HEAD && git clean -fdx"
@@ -300,7 +255,7 @@
           }
         },
         {
-          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260605.1"
+          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260606.1"
         },
         {
           "uses": "denoland/setup-deno@v2",
@@ -342,13 +297,7 @@
           "run": "npm install -g ./*.tgz"
         },
         {
-          "run": "fjs compile issues/demo/data/tree.json _tree.f.js"
-        },
-        {
-          "run": "fjs t"
-        },
-        {
-          "run": "npm uninstall functionalscript -g"
+          "run": "npm uninstall file-server-example -g"
         },
         {
           "run": "git reset --hard HEAD && git clean -fdx"
@@ -358,12 +307,6 @@
         },
         {
           "run": "deno task test"
-        },
-        {
-          "run": "deno task fjs compile issues/demo/data/tree.json _tree.f.js"
-        },
-        {
-          "run": "deno task fjs t"
         },
         {
           "run": "deno publish --dry-run --allow-slow-types"
@@ -376,9 +319,6 @@
         },
         {
           "run": "bun test --timeout 20000"
-        },
-        {
-          "run": "bun ./fs/fjs/module.ts t"
         },
         {
           "run": "git reset --hard HEAD && git clean -fdx"
@@ -395,7 +335,7 @@
           }
         },
         {
-          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260605.1"
+          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260606.1"
         },
         {
           "uses": "denoland/setup-deno@v2",
@@ -437,13 +377,7 @@
           "run": "npm install -g (Get-ChildItem *.tgz).FullName"
         },
         {
-          "run": "fjs compile issues/demo/data/tree.json _tree.f.js"
-        },
-        {
-          "run": "fjs t"
-        },
-        {
-          "run": "npm uninstall functionalscript -g"
+          "run": "npm uninstall file-server-example -g"
         },
         {
           "run": "git reset --hard HEAD && git clean -fdx"
@@ -453,12 +387,6 @@
         },
         {
           "run": "deno task test"
-        },
-        {
-          "run": "deno task fjs compile issues/demo/data/tree.json _tree.f.js"
-        },
-        {
-          "run": "deno task fjs t"
         },
         {
           "run": "deno publish --dry-run --allow-slow-types"
@@ -471,9 +399,6 @@
         },
         {
           "run": "bun test --timeout 20000"
-        },
-        {
-          "run": "bun ./fs/fjs/module.ts t"
         },
         {
           "run": "git reset --hard HEAD && git clean -fdx"
@@ -490,7 +415,7 @@
           }
         },
         {
-          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260605.1"
+          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260606.1"
         },
         {
           "uses": "denoland/setup-deno@v2",
@@ -529,13 +454,7 @@
           "run": "npm install -g (Get-ChildItem *.tgz).FullName"
         },
         {
-          "run": "fjs compile issues/demo/data/tree.json _tree.f.js"
-        },
-        {
-          "run": "fjs t"
-        },
-        {
-          "run": "npm uninstall functionalscript -g"
+          "run": "npm uninstall file-server-example -g"
         },
         {
           "run": "git reset --hard HEAD && git clean -fdx"
@@ -545,12 +464,6 @@
         },
         {
           "run": "deno task test"
-        },
-        {
-          "run": "deno task fjs compile issues/demo/data/tree.json _tree.f.js"
-        },
-        {
-          "run": "deno task fjs t"
         },
         {
           "run": "deno publish --dry-run --allow-slow-types"
@@ -563,9 +476,6 @@
         },
         {
           "run": "bun test --timeout 20000"
-        },
-        {
-          "run": "bun ./fs/fjs/module.ts t"
         },
         {
           "run": "git reset --hard HEAD && git clean -fdx"
