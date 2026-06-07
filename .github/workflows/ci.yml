@@ -1,34 +1,13 @@
 {
   "name": "CI",
   "on": {
-    "pull_request": {}
+    "pull_request": {},
+    "merge_group": {}
   },
   "jobs": {
     "ubuntu-intel": {
       "runs-on": "ubuntu-24.04",
       "steps": [
-        {
-          "run": "sudo apt-get update && sudo apt-get install -y libc6-dev-i386"
-        },
-        {
-          "uses": "dtolnay/rust-toolchain@1.95.0",
-          "with": {
-            "components": "rustfmt,clippy",
-            "targets": "wasm32-wasip1,wasm32-wasip2,wasm32-unknown-unknown,wasm32-wasip1-threads,i686-unknown-linux-gnu"
-          }
-        },
-        {
-          "uses": "bytecodealliance/actions/wasmtime/setup@v1",
-          "with": {
-            "version": "45.0.0"
-          }
-        },
-        {
-          "uses": "wasmerio/setup-wasmer@v3.1",
-          "with": {
-            "version": "v7.1.0"
-          }
-        },
         {
           "uses": "actions/setup-node@v6",
           "with": {
@@ -36,7 +15,7 @@
           }
         },
         {
-          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260604.1"
+          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260605.1"
         },
         {
           "uses": "denoland/setup-deno@v2",
@@ -54,79 +33,19 @@
           "uses": "actions/checkout@v6"
         },
         {
-          "run": "cargo fmt -- --check"
-        },
-        {
-          "run": "cargo clippy -- -D warnings"
-        },
-        {
-          "run": "cargo test"
-        },
-        {
-          "run": "cargo test --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --release"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target i686-unknown-linux-gnu"
-        },
-        {
-          "run": "cargo test --target i686-unknown-linux-gnu --release"
-        },
-        {
           "run": "npm ci"
         },
         {
-          "run": "npm t"
+          "run": "npx tsc"
         },
         {
-          "run": "npm run fst"
+          "run": "npm test"
+        },
+        {
+          "run": "node --test"
+        },
+        {
+          "run": "npm run cov"
         },
         {
           "run": "tsgo"
@@ -185,32 +104,13 @@
       "runs-on": "ubuntu-24.04-arm",
       "steps": [
         {
-          "uses": "dtolnay/rust-toolchain@1.95.0",
-          "with": {
-            "components": "rustfmt,clippy",
-            "targets": "wasm32-wasip1,wasm32-wasip2,wasm32-unknown-unknown,wasm32-wasip1-threads"
-          }
-        },
-        {
-          "uses": "bytecodealliance/actions/wasmtime/setup@v1",
-          "with": {
-            "version": "45.0.0"
-          }
-        },
-        {
-          "uses": "wasmerio/setup-wasmer@v3.1",
-          "with": {
-            "version": "v7.1.0"
-          }
-        },
-        {
           "uses": "actions/setup-node@v6",
           "with": {
             "node-version": "26.3.0"
           }
         },
         {
-          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260604.1"
+          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260605.1"
         },
         {
           "uses": "denoland/setup-deno@v2",
@@ -228,73 +128,19 @@
           "uses": "actions/checkout@v6"
         },
         {
-          "run": "cargo fmt -- --check"
-        },
-        {
-          "run": "cargo clippy -- -D warnings"
-        },
-        {
-          "run": "cargo test"
-        },
-        {
-          "run": "cargo test --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --release"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --config .cargo/config.wasmer.toml --release"
-        },
-        {
           "run": "npm ci"
         },
         {
-          "run": "npm t"
+          "run": "npx tsc"
         },
         {
-          "run": "npm run fst"
+          "run": "npm test"
+        },
+        {
+          "run": "node --test"
+        },
+        {
+          "run": "npm run cov"
         },
         {
           "run": "tsgo"
@@ -353,32 +199,13 @@
       "runs-on": "macos-26-intel",
       "steps": [
         {
-          "uses": "dtolnay/rust-toolchain@1.95.0",
-          "with": {
-            "components": "rustfmt,clippy",
-            "targets": "wasm32-wasip1,wasm32-wasip2,wasm32-unknown-unknown,wasm32-wasip1-threads"
-          }
-        },
-        {
-          "uses": "bytecodealliance/actions/wasmtime/setup@v1",
-          "with": {
-            "version": "45.0.0"
-          }
-        },
-        {
-          "uses": "wasmerio/setup-wasmer@v3.1",
-          "with": {
-            "version": "v7.1.0"
-          }
-        },
-        {
           "uses": "actions/setup-node@v6",
           "with": {
             "node-version": "26.3.0"
           }
         },
         {
-          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260604.1"
+          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260605.1"
         },
         {
           "uses": "denoland/setup-deno@v2",
@@ -396,73 +223,19 @@
           "uses": "actions/checkout@v6"
         },
         {
-          "run": "cargo fmt -- --check"
-        },
-        {
-          "run": "cargo clippy -- -D warnings"
-        },
-        {
-          "run": "cargo test"
-        },
-        {
-          "run": "cargo test --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --release"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --config .cargo/config.wasmer.toml --release"
-        },
-        {
           "run": "npm ci"
         },
         {
-          "run": "npm t"
+          "run": "npx tsc"
         },
         {
-          "run": "npm run fst"
+          "run": "npm test"
+        },
+        {
+          "run": "node --test"
+        },
+        {
+          "run": "npm run cov"
         },
         {
           "run": "tsgo"
@@ -521,32 +294,13 @@
       "runs-on": "macos-26",
       "steps": [
         {
-          "uses": "dtolnay/rust-toolchain@1.95.0",
-          "with": {
-            "components": "rustfmt,clippy",
-            "targets": "wasm32-wasip1,wasm32-wasip2,wasm32-unknown-unknown,wasm32-wasip1-threads"
-          }
-        },
-        {
-          "uses": "bytecodealliance/actions/wasmtime/setup@v1",
-          "with": {
-            "version": "45.0.0"
-          }
-        },
-        {
-          "uses": "wasmerio/setup-wasmer@v3.1",
-          "with": {
-            "version": "v7.1.0"
-          }
-        },
-        {
           "uses": "actions/setup-node@v6",
           "with": {
             "node-version": "26.3.0"
           }
         },
         {
-          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260604.1"
+          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260605.1"
         },
         {
           "uses": "denoland/setup-deno@v2",
@@ -564,73 +318,19 @@
           "uses": "actions/checkout@v6"
         },
         {
-          "run": "cargo fmt -- --check"
-        },
-        {
-          "run": "cargo clippy -- -D warnings"
-        },
-        {
-          "run": "cargo test"
-        },
-        {
-          "run": "cargo test --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --release"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --config .cargo/config.wasmer.toml --release"
-        },
-        {
           "run": "npm ci"
         },
         {
-          "run": "npm t"
+          "run": "npx tsc"
         },
         {
-          "run": "npm run fst"
+          "run": "npm test"
+        },
+        {
+          "run": "node --test"
+        },
+        {
+          "run": "npm run cov"
         },
         {
           "run": "tsgo"
@@ -689,32 +389,13 @@
       "runs-on": "windows-2025",
       "steps": [
         {
-          "uses": "dtolnay/rust-toolchain@1.95.0",
-          "with": {
-            "components": "rustfmt,clippy",
-            "targets": "wasm32-wasip1,wasm32-wasip2,wasm32-unknown-unknown,wasm32-wasip1-threads,i686-pc-windows-msvc"
-          }
-        },
-        {
-          "uses": "bytecodealliance/actions/wasmtime/setup@v1",
-          "with": {
-            "version": "45.0.0"
-          }
-        },
-        {
-          "uses": "wasmerio/setup-wasmer@v3.1",
-          "with": {
-            "version": "v7.1.0"
-          }
-        },
-        {
           "uses": "actions/setup-node@v6",
           "with": {
             "node-version": "26.3.0"
           }
         },
         {
-          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260604.1"
+          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260605.1"
         },
         {
           "uses": "denoland/setup-deno@v2",
@@ -732,79 +413,19 @@
           "uses": "actions/checkout@v6"
         },
         {
-          "run": "cargo fmt -- --check"
-        },
-        {
-          "run": "cargo clippy -- -D warnings"
-        },
-        {
-          "run": "cargo test"
-        },
-        {
-          "run": "cargo test --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --release"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target i686-pc-windows-msvc"
-        },
-        {
-          "run": "cargo test --target i686-pc-windows-msvc --release"
-        },
-        {
           "run": "npm ci"
         },
         {
-          "run": "npm t"
+          "run": "npx tsc"
         },
         {
-          "run": "npm run fst"
+          "run": "npm test"
+        },
+        {
+          "run": "node --test"
+        },
+        {
+          "run": "npm run cov"
         },
         {
           "run": "tsgo"
@@ -863,32 +484,13 @@
       "runs-on": "windows-11-arm",
       "steps": [
         {
-          "uses": "dtolnay/rust-toolchain@1.95.0",
-          "with": {
-            "components": "rustfmt,clippy",
-            "targets": "wasm32-wasip1,wasm32-wasip2,wasm32-unknown-unknown,wasm32-wasip1-threads"
-          }
-        },
-        {
-          "uses": "bytecodealliance/actions/wasmtime/setup@v1",
-          "with": {
-            "version": "45.0.0"
-          }
-        },
-        {
-          "uses": "wasmerio/setup-wasmer@v3.1",
-          "with": {
-            "version": "v7.1.0"
-          }
-        },
-        {
           "uses": "actions/setup-node@v6",
           "with": {
             "node-version": "26.3.0"
           }
         },
         {
-          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260604.1"
+          "run": "npm install -g @typescript/native-preview@7.0.0-dev.20260605.1"
         },
         {
           "uses": "denoland/setup-deno@v2",
@@ -903,73 +505,19 @@
           "uses": "actions/checkout@v6"
         },
         {
-          "run": "cargo fmt -- --check"
-        },
-        {
-          "run": "cargo clippy -- -D warnings"
-        },
-        {
-          "run": "cargo test"
-        },
-        {
-          "run": "cargo test --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1 --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip2 --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --release"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-unknown-unknown --config .cargo/config.wasmer.toml --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --release"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --config .cargo/config.wasmer.toml"
-        },
-        {
-          "run": "cargo test --target wasm32-wasip1-threads --config .cargo/config.wasmer.toml --release"
-        },
-        {
           "run": "npm ci"
         },
         {
-          "run": "npm t"
+          "run": "npx tsc"
         },
         {
-          "run": "npm run fst"
+          "run": "npm test"
+        },
+        {
+          "run": "node --test"
+        },
+        {
+          "run": "npm run cov"
         },
         {
           "run": "tsgo"
@@ -1040,10 +588,16 @@
           "run": "npm ci"
         },
         {
-          "run": "npm t"
+          "run": "npx tsc"
         },
         {
-          "run": "npm run fst"
+          "run": "npm test"
+        },
+        {
+          "run": "node --test"
+        },
+        {
+          "run": "npm run cov"
         }
       ]
     },
