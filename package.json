@@ -21,7 +21,7 @@
     "fst": "fjs t"
   },
   "dependencies": {
-    "functionalscript": "^0.24.0"
+    "functionalscript": "^0.25.0"
   },
   "devDependencies": {
     "typescript": "^6.0.3"
