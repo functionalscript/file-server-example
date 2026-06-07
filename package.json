@@ -18,7 +18,7 @@
     "test": "tsc && fjs t",
     "start": "fjs r ./server.f.ts",
     "update": "fjs i",
-    "cov": "node --test --experimental-test-coverage --test-coverage-include=**/server.f.ts"
+    "cov": "node --test --experimental-test-coverage --test-coverage-include=**/*.f.ts"
   },
   "dependencies": {
     "functionalscript": "^0.26.0"
