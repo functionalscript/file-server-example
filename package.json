@@ -17,7 +17,7 @@
   "scripts": {
     "test": "tsc && fjs t",
     "start": "fjs r ./server.f.ts",
-    "update": "npx npm-check-updates -u && npm install && deno install && fjs i",
+    "update": "npx npm-check-updates -u && npm install && deno install && bun install && fjs i",
     "cov": "node --test --experimental-test-coverage --test-coverage-include=**/*.f.ts"
   },
   "dependencies": {
