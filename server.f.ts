@@ -51,8 +51,6 @@ export const listener = ({ url }: IncomingMessage) => {
         )
 }
 
-const main: NodeProgram = () => createServer(listener)
+export const main: NodeProgram = () => createServer(listener)
     .step(server => listen(server, 3000))
     .step(forever)
-
-export default main
