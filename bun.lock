@@ -1,0 +1,20 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 0,
+  "workspaces": {
+    "": {
+      "name": "file-server-example",
+      "dependencies": {
+        "functionalscript": "^0.28.0",
+      },
+      "devDependencies": {
+        "typescript": "^6.0.3",
+      },
+    },
+  },
+  "packages": {
+    "functionalscript": ["functionalscript@0.28.0", "", { "bin": { "fjs": "fs/fjs/module.js" } }, "sha512-5xpG+8LaNkrZP5zbS7r69xmA5UtQBYi8EUiEbwqu2rhAXRh6aaEjPrXfrYBD5MOy5qyY8Qpk4hdrsdEdDt/7cw=="],
+
+    "typescript": ["typescript@6.0.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw=="],
+  }
+}
