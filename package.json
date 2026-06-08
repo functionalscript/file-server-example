@@ -21,9 +21,10 @@
     "cov": "node --test --experimental-test-coverage --test-coverage-include=**/*.f.ts"
   },
   "dependencies": {
-    "functionalscript": "^0.28.0"
+    "functionalscript": "0.28.0"
   },
   "devDependencies": {
-    "typescript": "^6.0.3"
+    "@playwright/test": "1.60.0",
+    "typescript": "6.0.3"
   }
 }
