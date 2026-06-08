@@ -2,7 +2,7 @@
   "version": "5",
   "specifiers": {
     "npm:@playwright/test@1.60.0": "1.60.0",
-    "npm:functionalscript@0.28.0": "0.28.0",
+    "npm:functionalscript@0.29.0": "0.29.0",
     "npm:typescript@6.0.3": "6.0.3"
   },
   "npm": {
@@ -18,8 +18,8 @@
       "os": ["darwin"],
       "scripts": true
     },
-    "functionalscript@0.28.0": {
-      "integrity": "sha512-5xpG+8LaNkrZP5zbS7r69xmA5UtQBYi8EUiEbwqu2rhAXRh6aaEjPrXfrYBD5MOy5qyY8Qpk4hdrsdEdDt/7cw==",
+    "functionalscript@0.29.0": {
+      "integrity": "sha512-aOeHI0tAdHBa27bW89nS067dlCU52cVhiSodxtfc4CH+KdlLgae6tuHZY6XuhR5E8e1hLVvhbxOYRrMe9CuXTA==",
       "bin": true
     },
     "playwright-core@1.60.0": {
@@ -45,7 +45,7 @@
     "packageJson": {
       "dependencies": [
         "npm:@playwright/test@1.60.0",
-        "npm:functionalscript@0.28.0",
+        "npm:functionalscript@0.29.0",
         "npm:typescript@6.0.3"
       ]
     }

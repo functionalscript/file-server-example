@@ -5,7 +5,7 @@
     "": {
       "name": "file-server-example",
       "dependencies": {
-        "functionalscript": "0.28.0",
+        "functionalscript": "0.29.0",
       },
       "devDependencies": {
         "@playwright/test": "1.60.0",
@@ -18,7 +18,7 @@
 
     "fsevents": ["fsevents@2.3.2", "", { "os": "darwin" }, "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="],
 
-    "functionalscript": ["functionalscript@0.28.0", "", { "bin": { "fjs": "fs/fjs/module.js" } }, "sha512-5xpG+8LaNkrZP5zbS7r69xmA5UtQBYi8EUiEbwqu2rhAXRh6aaEjPrXfrYBD5MOy5qyY8Qpk4hdrsdEdDt/7cw=="],
+    "functionalscript": ["functionalscript@0.29.0", "", { "bin": { "fjs": "fs/fjs/module.js" } }, "sha512-aOeHI0tAdHBa27bW89nS067dlCU52cVhiSodxtfc4CH+KdlLgae6tuHZY6XuhR5E8e1hLVvhbxOYRrMe9CuXTA=="],
 
     "playwright": ["playwright@1.60.0", "", { "dependencies": { "playwright-core": "1.60.0" }, "optionalDependencies": { "fsevents": "2.3.2" }, "bin": { "playwright": "cli.js" } }, "sha512-hheHdokM8cdqCb0lcE3s+zT4t4W+vvjpGxsZlDnikarzx8tSzMebh3UiFtgqwFwnTnjYQcsyMF8ei2mCO/tpeA=="],
 
