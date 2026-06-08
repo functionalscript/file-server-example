@@ -16,7 +16,7 @@ import {
 import { htmlUtf8 } from 'functionalscript/fs/html/module.f.js'
 import { concat } from 'functionalscript/fs/path/module.f.js'
 
-const listener = ({ url }: IncomingMessage) => {
+export const listener = ({ url }: IncomingMessage) => {
     const path = url.split('?')[0] ?? ''
     const file = '.' + path
 
